@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AG COFFEE. — Specialty Coffee Roaster, Kyoto Ginkakuji</title>
+<meta name="description" content="京都・銀閣寺の自家焙煎スペシャルティコーヒー店 AG COFFEE.。一杯ごとに豆と向き合い、季節のシングルオリジンを丁寧に淹れています。" />
+<meta property="og:title" content="AG COFFEE. — Specialty Coffee Roaster, Kyoto" />
+<meta property="og:description" content="京都・銀閣寺の自家焙煎スペシャルティコーヒー店。" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,800;1,9..144,300&family=Shippori+Mincho:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "AG COFFEE.",
+  "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&auto=format&fit=crop",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "京都市左京区",
+    "addressRegion": "京都府",
+    "addressCountry": "JP"
+  },
+  "servesCuisine": "Specialty Coffee",
+  "priceRange": "¥¥"
+}
+</script>
+
+<style>
+  :root {
+    --ink:        oklch(0.18 0.01 60);
+    --paper:      oklch(0.96 0.015 80);
+    --cream:      oklch(0.92 0.025 75);
+    --espresso:   oklch(0.32 0.04 40);
+    --terracotta: oklch(0.62 0.13 40);
+    --moss:       oklch(0.45 0.05 130);
+    --mist:       oklch(0.55 0.01 60);
+    --line:       oklch(0.85 0.015 70);
+
+    --serif: "Fraunces", "Shippori Mincho", serif;
+    --jp:    "Shippori Mincho", serif;
+    --mono:  "JetBrains Mono", ui-monospace, monospace;
+
+    --max:   1240px;
+    --pad:   clamp(20px, 4vw, 56px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--jp);
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(50,30,15,.06) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 80%, rgba(50,30,15,.05) 50%, transparent 51%),
+      radial-gradient(1px 1px at 40% 60%, rgba(50,30,15,.04) 50%, transparent 51%);
+    background-size: 220px 220px, 180px 180px, 260px 260px;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+  /* ───── Top bar ───── */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(1.2);
+    background: color-mix(in oklab, var(--paper) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+  }
+  .brand .dot { color: var(--terracotta); }
+  nav ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 28px;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  nav a { color: var(--espresso); transition: opacity .2s; }
+  nav a:hover { opacity: .55; }
+  @media (max-width: 720px) { nav ul { display: none; } }
+
+  /* ───── Hero ───── */
+  .hero {
+    padding: clamp(60px, 12vw, 140px) 0 clamp(60px, 10vw, 120px);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: end;
+  }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--terracotta);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: var(--terracotta);
+  }
+  h1.headline {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(48px, 9vw, 124px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--ink);
+  }
+  h1.headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+  .lede {
+    font-family: var(--jp);
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--espresso);
+    max-width: 38ch;
+  }
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-visual .photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--cream);
+    position: relative;
+  }
+  .hero-visual .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.92) contrast(1.05);
+  }
+  .hero-meta-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mist);
+    text-transform: uppercase;
+  }
+  .hero-meta-inline strong {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0;
+    color: var(--ink);
+    margin-top: 6px;
+    text-transform: none;
+  }
+
+  /* ───── Bridge image ───── */
+  .bridge {
+    width: 100%;
+    height: clamp(320px, 60vh, 640px);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .bridge img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.9);
+  }
+
+  /* ───── Marquee / running line ───── */
+  .marquee {
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .marquee-track {
+    display: flex; gap: 48px;
+    padding: 18px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--espresso);
+    white-space: nowrap;
+    animation: slide 40s linear infinite;
+  }
+  .marquee-track span::after {
+    content: "✦";
+    margin-left: 48px;
+    color: var(--terracotta);
+    font-style: normal;
+  }
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ───── Section headings ───── */
+  section { padding: clamp(80px, 12vw, 140px) 0; border-bottom: 1px solid var(--line); }
+  .sect-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(24px, 4vw, 60px);
+    margin-bottom: clamp(40px, 6vw, 72px);
+    align-items: baseline;
+  }
+  @media (max-width: 720px) { .sect-head { grid-template-columns: 1fr; } }
+  .sect-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+  }
+  .sect-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .sect-title em { font-style: italic; color: var(--espresso); }
+
+  /* ───── Story ───── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .story-grid { grid-template-columns: 1fr; } }
+  .story-text p {
+    font-size: 16px;
+    line-height: 2.05;
+    color: var(--espresso);
+    margin: 0 0 1.5em;
+  }
+  .story-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: clamp(28px, 4vw, 48px);
+    aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .story-card::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(120% 80% at 30% 20%, color-mix(in oklab, var(--terracotta) 18%, transparent), transparent 60%),
+      radial-gradient(100% 60% at 80% 90%, color-mix(in oklab, var(--moss) 14%, transparent), transparent 60%);
+    z-index: -1;
+  }
+  .story-card .bg-photo {
+    position: absolute; inset: 0;
+    z-index: -2;
+    overflow: hidden;
+  }
+  .story-card .bg-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .22;
+    filter: saturate(.6) contrast(1.05);
+  }
+  .story-card .stamp {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(80px, 12vw, 160px);
+    line-height: 0.85;
+    color: var(--ink);
+  }
+  .story-card .stamp em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+  .story-card .stamp-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--espresso);
+    text-transform: uppercase;
+  }
+
+  /* ───── Beans ───── */
+  .beans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 36px);
+  }
+  @media (max-width: 860px) { .beans { grid-template-columns: 1fr; } }
+  .bean {
+    border: 1px solid var(--line);
+    padding: clamp(28px, 3vw, 40px);
+    background: color-mix(in oklab, var(--paper) 92%, var(--cream));
+    display: flex; flex-direction: column;
+    transition: transform .4s ease, background .4s ease;
+    overflow: hidden;
+  }
+  .bean:hover {
+    transform: translateY(-4px);
+    background: var(--cream);
+  }
+  .bean-photo {
+    aspect-ratio: 1 / 1;
+    margin: calc(-1 * clamp(28px, 3vw, 40px));
+    margin-bottom: clamp(24px, 3vw, 32px);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .bean-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+    filter: saturate(.92);
+  }
+  .bean:hover .bean-photo img { transform: scale(1.05); }
+  .bean-origin {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .bean-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+  .bean-name em { font-style: italic; }
+  .bean-jp {
+    font-family: var(--jp);
+    font-size: 13px;
+    color: var(--mist);
+    margin-bottom: 28px;
+  }
+  .notes {
+    list-style: none; padding: 0; margin: 0 0 28px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .notes li {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--espresso);
+  }
+  .bean-foot {
+    margin-top: auto;
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .bean-price {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+  }
+  .bean-roast {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+    text-transform: uppercase;
+  }
+
+  /* ───── Process ───── */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 860px) { .process { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .process { grid-template-columns: 1fr; } }
+  .step {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(28px, 3vw, 40px);
+    min-height: 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .step-photo {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .step-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.85);
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 200;
+    font-size: 56px;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 16px 0 8px;
+  }
+  .step p {
+    font-size: 14px;
+    color: var(--espresso);
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  /* ───── Visit ───── */
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    width: 30%;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+  }
+  .info-table td {
+    color: var(--espresso);
+    line-height: 1.85;
+  }
+  .info-table td strong {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .visit-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .visit-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.9) contrast(1.04);
+  }
+  .map {
+    aspect-ratio: 4 / 5;
+    background:
+      linear-gradient(135deg, color-mix(in oklab, var(--moss) 18%, var(--cream)) 0%, var(--cream) 100%);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .map::before, .map::after {
+    content: "";
+    position: absolute;
+    background: color-mix(in oklab, var(--ink) 10%, transparent);
+  }
+  .map::before {
+    width: 200%; height: 1px;
+    top: 35%; left: -50%;
+    transform: rotate(-7deg);
+  }
+  .map::after {
+    width: 1px; height: 200%;
+    left: 60%; top: -50%;
+    transform: rotate(8deg);
+  }
+  .pin {
+    position: absolute;
+    top: 38%; left: 58%;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--terracotta) 25%, transparent),
+                0 0 0 14px color-mix(in oklab, var(--terracotta) 12%, transparent);
+  }
+  .map-label {
+    position: absolute;
+    top: 50%; left: 60%;
+    transform: translate(8px, 8px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--espresso);
+    background: var(--paper);
+    padding: 4px 8px;
+    border: 1px solid var(--line);
+  }
+
+  /* ───── CTA ───── */
+  .cta {
+    text-align: center;
+    padding: clamp(80px, 12vw, 140px) var(--pad);
+    color: var(--paper);
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      linear-gradient(color-mix(in oklab, var(--ink) 88%, transparent), color-mix(in oklab, var(--ink) 92%, transparent)),
+      url('https://images.unsplash.com/photo-1442550528053-c431ecb55509?w=1800&auto=format&fit=crop') center/cover no-repeat;
+    background-color: var(--ink);
+  }
+  .cta h2 {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--paper);
+  }
+  .cta h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .cta p {
+    font-size: 15px;
+    color: color-mix(in oklab, var(--paper) 70%, transparent);
+    max-width: 44ch;
+    margin: 0 auto 48px;
+    line-height: 1.95;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 36px;
+    background: var(--terracotta);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .btn:hover {
+    background: color-mix(in oklab, var(--terracotta) 80%, var(--ink));
+    transform: translateY(-2px);
+  }
+  .btn::after {
+    content: "→";
+    font-family: var(--serif);
+    font-size: 16px;
+  }
+
+  /* ───── Footer ───── */
+  footer {
+    background: var(--ink);
+    color: color-mix(in oklab, var(--paper) 70%, transparent);
+    padding: 60px 0 40px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  .foot-grid h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .foot-grid ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .foot-brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--paper);
+    margin-bottom: 16px;
+    letter-spacing: 0;
+  }
+  .foot-bottom {
+    border-top: 1px solid color-mix(in oklab, var(--paper) 15%, transparent);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 11px;
+    color: color-mix(in oklab, var(--paper) 50%, transparent);
+  }
+
+  /* ───── Reveal animation (page load) ───── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .reveal.d1 { animation-delay: .1s; }
+  .reveal.d2 { animation-delay: .25s; }
+  .reveal.d3 { animation-delay: .4s; }
+  .reveal.d4 { animation-delay: .55s; }
+  @keyframes rise {
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">AG COFFEE<span class="dot">.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#beans">Beans</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow reveal d1">Specialty Coffee Roaster — Est. 2014</div>
+      <h1 class="headline reveal d2">A quiet<br/>cup, <em>roasted</em><br/>in Kyoto.</h1>
+      <p class="lede reveal d3">
+        銀閣寺へ続く道、白川のほとりで。<br/>
+        産地の声に耳をすませ、季節ごとの一杯を、<br/>
+        一袋ずつ手で焙煎しています。
+      </p>
+    </div>
+    <aside class="hero-visual reveal d4">
+      <div class="photo">
+        <img src="images/IMG_1868.jpg"
+             alt="AG COFFEEテイクアウトカップ"
+             fetchpriority="high" decoding="async" />
+      </div>
+      <div class="hero-meta-inline">
+        <div>
+          Today's bean
+          <strong>Ethiopia, Yirgacheffe G1</strong>
+        </div>
+        <div>
+          Hours
+          <strong>10:00 — 19:00 / Closed Tue.</strong>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<figure class="bridge" aria-hidden="false">
+  <img src="images/IMG_1866.jpg"
+       alt="雪の銀閣寺 — 京都・銀閣寺"
+       loading="lazy" decoding="async" />
+</figure>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Hand-roasted in small batches</span>
+    <span>Seasonal single origin</span>
+    <span>Direct from the farm</span>
+    <span>Brewed slowly, served quietly</span>
+    <span>Hand-roasted in small batches</span>
+    <span>Seasonal single origin</span>
+    <span>Direct from the farm</span>
+    <span>Brewed slowly, served quietly</span>
+  </div>
+</div>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">01 — Story</div>
+      <h2 class="sect-title">産地と、季節と、<br/><em>一杯の静けさと。</em></h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>
+          AG COFFEE. は、京都・銀閣寺のほとりに小さな焙煎所を構えるスペシャルティコーヒー店です。
+          創業の2014年から、私たちは「派手さよりも、深い静けさ」を大切にしてきました。
+        </p>
+        <p>
+          扱う豆は、年間を通じて世界の12の農園から。
+          スコア85点以上のロットだけを選び、産地の高度・土・発酵の癖までを聞き取ったうえで、
+          そのロットがいちばん語る焙煎度を決めます。
+        </p>
+        <p>
+          浅煎りの華やかさ、中煎りの厚み。
+          一杯のなかに、農園の朝のしずけさが残るような味を目指しています。
+        </p>
+      </div>
+      <div class="story-card">
+        <div class="bg-photo">
+          <img src="images/IMG_1871.jpg"
+               alt="AG COFFEE KYOTOカップ" loading="lazy" decoding="async" />
+        </div>
+        <div class="stamp">12<em>°</em></div>
+        <div>
+          <div class="stamp-meta">Origins / Year</div>
+          <div style="font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 18px; color: var(--espresso); margin-top: 8px;">
+            Ethiopia · Kenya · Colombia · Costa Rica · Panama · Bolivia · Rwanda · Honduras · Brazil · Indonesia · Yemen · Peru
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beans">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">02 — Seasonal Beans</div>
+      <h2 class="sect-title">この季節の、<br/><em>三つの一杯。</em></h2>
+    </div>
+    <div class="beans">
+
+      <article class="bean">
+        <div class="bean-photo">
+          <img src="https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?w=700&auto=format&fit=crop"
+               alt="エチオピア コンガ ナチュラルのコーヒーチェリー"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="bean-origin">Ethiopia · Yirgacheffe</div>
+        <h3 class="bean-name"><em>Konga</em><br/>Natural G1</h3>
+        <p class="bean-jp">コンガ ナチュラル・G1</p>
+        <ul class="notes">
+          <li>Strawberry</li>
+          <li>Jasmine</li>
+          <li>Honey</li>
+        </ul>
+        <div class="bean-foot">
+          <div class="bean-price">¥1,820<span style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; color:var(--mist);">  / 100g</span></div>
+          <div class="bean-roast">Light</div>
+        </div>
+      </article>
+
+      <article class="bean">
+        <div class="bean-photo">
+          <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=700&auto=format&fit=crop"
+               alt="白いカップに注がれたゲイシャコーヒー"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="bean-origin">Panama · Boquete</div>
+        <h3 class="bean-name"><em>Don Pepe</em><br/>Geisha Washed</h3>
+        <p class="bean-jp">ドン・ペペ ゲイシャ・ウォッシュド</p>
+        <ul class="notes">
+          <li>Bergamot</li>
+          <li>White peach</li>
+          <li>Black tea</li>
+        </ul>
+        <div class="bean-foot">
+          <div class="bean-price">¥3,600<span style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; color:var(--mist);">  / 100g</span></div>
+          <div class="bean-roast">Light</div>
+        </div>
+      </article>
+
+      <article class="bean">
+        <div class="bean-photo">
+          <img src="https://images.unsplash.com/photo-1744839196639-80ef7151d640?w=700&auto=format&fit=crop"
+               alt="コロンビア アナエロビック 焙煎豆クローズアップ"
+               loading="lazy" decoding="async" />
+        </div>
+        <div class="bean-origin">Colombia · Huila</div>
+        <h3 class="bean-name"><em>El Mirador</em><br/>Anaerobic</h3>
+        <p class="bean-jp">エル・ミラドール アナエロビック</p>
+        <ul class="notes">
+          <li>Dark cherry</li>
+          <li>Cocoa</li>
+          <li>Brown sugar</li>
+        </ul>
+        <div class="bean-foot">
+          <div class="bean-price">¥2,200<span style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; color:var(--mist);">  / 100g</span></div>
+          <div class="bean-roast">Medium</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">03 — Process</div>
+      <h2 class="sect-title">畑から、一杯まで。<br/><em>四つの工程。</em></h2>
+    </div>
+  </div>
+  <div class="wrap" style="padding-left: var(--pad); padding-right: var(--pad);">
+    <div class="process">
+      <div class="step">
+        <div>
+          <div class="step-photo"><img src="https://images.unsplash.com/photo-1550955731-5a4cfd898f64?w=240&auto=format&fit=crop" alt="" loading="lazy" decoding="async" /></div>
+          <div class="step-num">01</div>
+          <h3>Sourcing</h3>
+        </div>
+        <p>カッピングスコア85点以上を基準に、産地の生産者と直接取引。土壌・標高・発酵の方法まで聞いて選びます。</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-photo"><img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?w=240&auto=format&fit=crop" alt="" loading="lazy" decoding="async" /></div>
+          <div class="step-num">02</div>
+          <h3>Roasting</h3>
+        </div>
+        <p>5kg釜で小ロットずつ。豆ごとに最適なRoR（昇温率）を組み立て、一焙煎ごとにプロファイルを残します。</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-photo"><img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=240&auto=format&fit=crop" alt="" loading="lazy" decoding="async" /></div>
+          <div class="step-num">03</div>
+          <h3>Resting</h3>
+        </div>
+        <p>焙煎後は最低5日寝かせ、ガスを抜く。出荷直前に再カッピングし、状態が整った豆だけを店頭へ。</p>
+      </div>
+      <div class="step">
+        <div>
+          <div class="step-photo"><img src="https://images.unsplash.com/photo-1643427517196-7822b972517f?w=240&auto=format&fit=crop" alt="" loading="lazy" decoding="async" /></div>
+          <div class="step-num">04</div>
+          <h3>Brewing</h3>
+        </div>
+        <p>1杯ずつハンドドリップ。湯温と注ぎ方を豆ごとに変え、その日いちばん澄んだ抽出をお出しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">04 — Visit</div>
+      <h2 class="sect-title">銀閣寺の道すがら、<br/><em>白川のほとりに。</em></h2>
+    </div>
+    <div class="visit-grid">
+      <table class="info-table">
+        <tr>
+          <th>Address</th>
+          <td>
+            <strong>京都市左京区銀閣寺町</strong>
+            銀閣寺道から徒歩3分、白川沿いの町家
+          </td>
+        </tr>
+        <tr>
+          <th>Hours</th>
+          <td>
+            <strong>10:00 — 19:00</strong>
+            ラストオーダー 18:30
+          </td>
+        </tr>
+        <tr>
+          <th>Closed</th>
+          <td>
+            <strong>火曜日</strong>
+            臨時休業はInstagramでお知らせします
+          </td>
+        </tr>
+        <tr>
+          <th>Access</th>
+          <td>
+            <strong>市バス「銀閣寺道」より徒歩3分</strong>
+            京都駅より約30分／自転車駐輪可
+          </td>
+        </tr>
+        <tr>
+          <th>Service</th>
+          <td>
+            <strong>店内 / テイクアウト / 豆販売 / 通販</strong>
+            毎月第二土曜にカッピング会を開催（要予約）
+          </td>
+        </tr>
+      </table>
+
+      <div>
+        <div class="visit-photo">
+          <img src="images/IMG_1867.jpg"
+               alt="AG COFFEE 店舗外観" loading="lazy" decoding="async" />
+        </div>
+        <div class="map" role="img" aria-label="店舗の位置を示すイラスト地図">
+          <div class="pin"></div>
+          <div class="map-label">AG COFFEE.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>One bag,<br/>one <em>quiet</em> morning.</h2>
+  <p>
+    今月の豆を、ご自宅へ。<br/>
+    定期便は月1袋から。いつでも休止できます。
+  </p>
+  <a class="btn" href="#">Subscribe to beans</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">AG COFFEE.</div>
+        <div>京都・銀閣寺の小さな焙煎所。<br/>季節の一杯を、ひと袋ずつ。</div>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#beans">Beans</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">Single Origin</a></li>
+          <li><a href="#">Subscription</a></li>
+          <li><a href="#">Drip Bag</a></li>
+          <li><a href="#">Goods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Cupping</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 AG COFFEE. — Roasted in Kyoto, Japan.</div>
+      <div>Privacy · Terms · Specified Commercial Transactions</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
