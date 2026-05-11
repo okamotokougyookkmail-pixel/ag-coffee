@@ -560,6 +560,66 @@
     border: 1px solid var(--line);
   }
 
+  /* ───── Menu ───── */
+  .menu-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+  .menu-tab {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--mist);
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .menu-tab:hover { border-color: var(--espresso); color: var(--espresso); }
+  .menu-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  .menu-item {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 18px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    gap: 12px;
+  }
+  .menu-item-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .menu-item-price {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .menu-item-price span {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    margin-right: 2px;
+  }
+
   /* ───── CTA ───── */
   .cta {
     text-align: center;
@@ -689,6 +749,7 @@
       <ul>
         <li><a href="#story">Story</a></li>
         <li><a href="#beans">Beans</a></li>
+        <li><a href="#menu">Menu</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#visit">Visit</a></li>
       </ul>
@@ -857,6 +918,129 @@
   </div>
 </section>
 
+<section id="menu">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">03 — Menu</div>
+      <h2 class="sect-title">一杯と、一皿。<br/><em>全てのメニュー。</em></h2>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-cat="coffee">Coffee</button>
+      <button class="menu-tab" data-cat="tea">Tea &amp; Matcha</button>
+      <button class="menu-tab" data-cat="drinks">Drinks</button>
+      <button class="menu-tab" data-cat="food">Food</button>
+      <button class="menu-tab" data-cat="sweets">Sweets</button>
+      <button class="menu-tab" data-cat="beer">Beer &amp; Cocktails</button>
+      <button class="menu-tab" data-cat="beans">Beans</button>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="menu-panel active" id="cat-coffee">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price"><span>¥</span>500</span></div>
+        <div class="menu-item"><span class="menu-item-name">Double Espresso</span><span class="menu-item-price"><span>¥</span>550</span></div>
+        <div class="menu-item"><span class="menu-item-name">Americano HOT</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Americano ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Latte HOT</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Latte ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Mocha HOT</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Mocha ICED</span><span class="menu-item-price"><span>¥</span>730</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Macchiato</span><span class="menu-item-price"><span>¥</span>580</span></div>
+        <div class="menu-item"><span class="menu-item-name">Flat White</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Long Black HOT</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Long Black ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">AG-COLD BREW</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO-COLD BREW</span><span class="menu-item-price"><span>¥</span>700</span></div>
+      </div>
+    </div>
+
+    <!-- TEA & MATCHA -->
+    <div class="menu-panel" id="cat-tea">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Uji Matcha Latte HOT</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Uji Matcha Latte ICED</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha HOT</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Latte HOT</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Latte ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Japanese Black Tea HOT</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Japanese Black Tea ICED</span><span class="menu-item-price"><span>¥</span>600</span></div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-panel" id="cat-drinks">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Chocolate HOT</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chocolate ICED</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Home Made Lemonade</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">KIWI Lemonade</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">BLUE MINT Lemonade</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">BERRY Lemonade</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Home Made Gingerale</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Apple Juice</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Peach Juice</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Perrier</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">COKE</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Babyccino</span><span class="menu-item-price"><span>¥</span>350</span></div>
+      </div>
+    </div>
+
+    <!-- FOOD -->
+    <div class="menu-panel" id="cat-food">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Kyoto Bacon</span><span class="menu-item-price"><span>¥</span>1,450</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smoked Salmon &amp; Cream Cheese</span><span class="menu-item-price"><span>¥</span>1,450</span></div>
+        <div class="menu-item"><span class="menu-item-name">Teriyaki Chicken</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Egg &amp; Ham</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Vegan Sand</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hot Dog</span><span class="menu-item-price"><span>¥</span>980</span></div>
+      </div>
+    </div>
+
+    <!-- SWEETS -->
+    <div class="menu-panel" id="cat-sweets">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Chocolate Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Espresso Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chestnut Pound Cake</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Dry Fruit Pound Cake</span><span class="menu-item-price"><span>¥</span>550</span></div>
+        <div class="menu-item"><span class="menu-item-name">White Chocolate &amp; Berry</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha Walnut Cookie</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cocoa Banana</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Caramel Almond</span><span class="menu-item-price"><span>¥</span>420</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chocolate Chunk Cookie</span><span class="menu-item-price"><span>¥</span>380</span></div>
+      </div>
+    </div>
+
+    <!-- BEER & COCKTAILS -->
+    <div class="menu-panel" id="cat-beer">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Sapporo</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Heineken</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI BLUE</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI RED</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI YELLOW</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+      </div>
+    </div>
+
+    <!-- BEANS -->
+    <div class="menu-panel" id="cat-beans">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 100g</span><span class="menu-item-price"><span>¥</span>1,050</span></div>
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 250g</span><span class="menu-item-price"><span>¥</span>2,500</span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 100g</span><span class="menu-item-price"><span>¥</span>1,150</span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 200g</span><span class="menu-item-price"><span>¥</span>2,200</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="process">
   <div class="wrap">
     <div class="sect-head">
@@ -1011,5 +1195,16 @@
   </div>
 </footer>
 
+<script>
+  // Menu tab switching
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('cat-' + tab.dataset.cat).classList.add('active');
+    });
+  });
+</script>
 </body>
 </html>
