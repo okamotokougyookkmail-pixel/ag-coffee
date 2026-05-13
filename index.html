@@ -1,64 +1,1165 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AG COFFEE. — 準備中</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f5f0eb;
-      font-family: 'Georgia', serif;
-    }
-    .container {
-      text-align: center;
-      padding: 60px 40px;
-    }
-    .logo {
-      font-size: 28px;
-      letter-spacing: 0.2em;
-      color: #1a1a1a;
-      margin-bottom: 40px;
-    }
-    .logo span { color: #c0392b; }
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: #999;
-      margin: 0 auto 40px;
-    }
-    h1 {
-      font-size: 14px;
-      letter-spacing: 0.3em;
-      color: #666;
-      font-weight: normal;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 14px;
-      color: #888;
-      line-height: 2;
-    }
-    .contact {
-      margin-top: 40px;
-      font-size: 13px;
-      color: #aaa;
-      letter-spacing: 0.1em;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AG COFFEE. — Specialty Coffee Roaster, Kyoto Ginkakuji</title>
+<meta name="description" content="京都・銀閣寺の自家焙煎スペシャルティコーヒー店 AG COFFEE.。一杯ごとに豆と向き合い、季節のシングルオリジンを丁寧に淹れています。" />
+<meta property="og:title" content="AG COFFEE. — Specialty Coffee Roaster, Kyoto" />
+<meta property="og:description" content="京都・銀閣寺の自家焙煎スペシャルティコーヒー店。" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,800;1,9..144,300&family=Shippori+Mincho:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "AG COFFEE.",
+  "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&auto=format&fit=crop",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "京都市左京区",
+    "addressRegion": "京都府",
+    "addressCountry": "JP"
+  },
+  "servesCuisine": "Specialty Coffee",
+  "priceRange": "¥¥"
+}
+</script>
+
+<style>
+  :root {
+    --ink:        oklch(0.18 0.01 60);
+    --paper:      oklch(0.96 0.015 80);
+    --cream:      oklch(0.92 0.025 75);
+    --espresso:   oklch(0.32 0.04 40);
+    --terracotta: oklch(0.62 0.13 40);
+    --moss:       oklch(0.45 0.05 130);
+    --mist:       oklch(0.55 0.01 60);
+    --line:       oklch(0.85 0.015 70);
+
+    --serif: "Fraunces", "Shippori Mincho", serif;
+    --jp:    "Shippori Mincho", serif;
+    --mono:  "JetBrains Mono", ui-monospace, monospace;
+
+    --max:   1240px;
+    --pad:   clamp(20px, 4vw, 56px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--jp);
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(50,30,15,.06) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 80%, rgba(50,30,15,.05) 50%, transparent 51%),
+      radial-gradient(1px 1px at 40% 60%, rgba(50,30,15,.04) 50%, transparent 51%);
+    background-size: 220px 220px, 180px 180px, 260px 260px;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+  /* ───── Top bar ───── */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(1.2);
+    background: color-mix(in oklab, var(--paper) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .brand {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+  }
+  .brand .dot { color: var(--terracotta); }
+  nav ul {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 28px;
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  nav a { color: var(--espresso); transition: opacity .2s; }
+  nav a:hover { opacity: .55; }
+  @media (max-width: 720px) { nav ul { display: none; } }
+
+  /* ───── Hero ───── */
+  .hero {
+    padding: clamp(60px, 12vw, 140px) 0 clamp(60px, 10vw, 120px);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: clamp(32px, 6vw, 80px);
+    align-items: end;
+  }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--terracotta);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ""; width: 32px; height: 1px; background: var(--terracotta);
+  }
+  h1.headline {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(48px, 9vw, 124px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--ink);
+  }
+  h1.headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+  .lede {
+    font-family: var(--jp);
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--espresso);
+    max-width: 38ch;
+  }
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .hero-visual .photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--cream);
+    position: relative;
+  }
+  .hero-visual .photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.92) contrast(1.05);
+  }
+  .hero-meta-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--mist);
+    text-transform: uppercase;
+  }
+  .hero-meta-inline strong {
+    display: block;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 0;
+    color: var(--ink);
+    margin-top: 6px;
+    text-transform: none;
+  }
+
+  /* ───── Bridge image ───── */
+  .bridge {
+    width: 100%;
+    height: clamp(320px, 60vh, 640px);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .bridge img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.9);
+  }
+
+  /* ───── Marquee / running line ───── */
+  .marquee {
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .marquee-track {
+    display: flex; gap: 48px;
+    padding: 18px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--espresso);
+    white-space: nowrap;
+    animation: slide 40s linear infinite;
+  }
+  .marquee-track span::after {
+    content: "✦";
+    margin-left: 48px;
+    color: var(--terracotta);
+    font-style: normal;
+  }
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+
+  /* ───── Section headings ───── */
+  section { padding: clamp(80px, 12vw, 140px) 0; border-bottom: 1px solid var(--line); }
+  .sect-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(24px, 4vw, 60px);
+    margin-bottom: clamp(40px, 6vw, 72px);
+    align-items: baseline;
+  }
+  @media (max-width: 720px) { .sect-head { grid-template-columns: 1fr; } }
+  .sect-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+  }
+  .sect-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    margin: 0;
+  }
+  .sect-title em { font-style: italic; color: var(--espresso); }
+
+  /* ───── Story ───── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 680px;
+  }
+  .story-text p {
+    font-size: 16px;
+    line-height: 2.05;
+    color: var(--espresso);
+    margin: 0 0 1.5em;
+  }
+  .story-card {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: clamp(28px, 4vw, 48px);
+    aspect-ratio: 4 / 5;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .story-card::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(120% 80% at 30% 20%, color-mix(in oklab, var(--terracotta) 18%, transparent), transparent 60%),
+      radial-gradient(100% 60% at 80% 90%, color-mix(in oklab, var(--moss) 14%, transparent), transparent 60%);
+    z-index: -1;
+  }
+  .story-card .bg-photo {
+    position: absolute; inset: 0;
+    z-index: -2;
+    overflow: hidden;
+  }
+  .story-card .bg-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .22;
+    filter: saturate(.6) contrast(1.05);
+  }
+  .story-card .stamp {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(80px, 12vw, 160px);
+    line-height: 0.85;
+    color: var(--ink);
+  }
+  .story-card .stamp em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+  .story-card .stamp-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--espresso);
+    text-transform: uppercase;
+  }
+
+  /* ───── Beans ───── */
+  .beans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 3vw, 36px);
+  }
+  @media (max-width: 860px) { .beans { grid-template-columns: 1fr; } }
+  .bean {
+    border: 1px solid var(--line);
+    padding: clamp(28px, 3vw, 40px);
+    background: color-mix(in oklab, var(--paper) 92%, var(--cream));
+    display: flex; flex-direction: column;
+    transition: transform .4s ease, background .4s ease;
+    overflow: hidden;
+  }
+  .bean:hover {
+    transform: translateY(-4px);
+    background: var(--cream);
+  }
+  .bean-photo {
+    aspect-ratio: 1 / 1;
+    margin: calc(-1 * clamp(28px, 3vw, 40px));
+    margin-bottom: clamp(24px, 3vw, 32px);
+    overflow: hidden;
+    background: var(--cream);
+  }
+  .bean-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+    filter: saturate(.92);
+  }
+  .bean:hover .bean-photo img { transform: scale(1.05); }
+  .bean-origin {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .bean-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 1.15;
+    margin: 0 0 8px;
+  }
+  .bean-name em { font-style: italic; }
+  .bean-jp {
+    font-family: var(--jp);
+    font-size: 13px;
+    color: var(--mist);
+    margin-bottom: 28px;
+  }
+  .notes {
+    list-style: none; padding: 0; margin: 0 0 28px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .notes li {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--espresso);
+  }
+  .bean-foot {
+    margin-top: auto;
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .bean-price {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 26px;
+  }
+  .bean-roast {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--mist);
+    text-transform: uppercase;
+  }
+
+  /* ───── Process ───── */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 860px) { .process { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .process { grid-template-columns: 1fr; } }
+  .step {
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(28px, 3vw, 40px);
+    min-height: 240px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .step-photo {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .step-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.85);
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 200;
+    font-size: 56px;
+    color: var(--terracotta);
+    line-height: 1;
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 16px 0 8px;
+  }
+  .step p {
+    font-size: 14px;
+    color: var(--espresso);
+    line-height: 1.85;
+    margin: 0;
+  }
+
+  /* ───── Visit ───── */
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    width: 30%;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+  }
+  .info-table td {
+    color: var(--espresso);
+    line-height: 1.85;
+  }
+  .info-table td strong {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--ink);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .visit-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin-bottom: 16px;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+  .visit-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.9) contrast(1.04);
+  }
+  .map {
+    aspect-ratio: 4 / 5;
+    background:
+      linear-gradient(135deg, color-mix(in oklab, var(--moss) 18%, var(--cream)) 0%, var(--cream) 100%);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .map::before, .map::after {
+    content: "";
+    position: absolute;
+    background: color-mix(in oklab, var(--ink) 10%, transparent);
+  }
+  .map::before {
+    width: 200%; height: 1px;
+    top: 35%; left: -50%;
+    transform: rotate(-7deg);
+  }
+  .map::after {
+    width: 1px; height: 200%;
+    left: 60%; top: -50%;
+    transform: rotate(8deg);
+  }
+  .pin {
+    position: absolute;
+    top: 38%; left: 58%;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 0 6px color-mix(in oklab, var(--terracotta) 25%, transparent),
+                0 0 0 14px color-mix(in oklab, var(--terracotta) 12%, transparent);
+  }
+  .map-label {
+    position: absolute;
+    top: 50%; left: 60%;
+    transform: translate(8px, 8px);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--espresso);
+    background: var(--paper);
+    padding: 4px 8px;
+    border: 1px solid var(--line);
+  }
+
+  /* ───── Menu ───── */
+  .menu-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+  .menu-tab {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 10px 20px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--mist);
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .menu-tab:hover { border-color: var(--espresso); color: var(--espresso); }
+  .menu-tab.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+  @media (max-width: 600px) { .menu-grid { grid-template-columns: 1fr; } }
+
+  .menu-item {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 18px 24px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    gap: 12px;
+  }
+  .menu-item-name {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .menu-item-price {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--terracotta);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .menu-item-price span {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    margin-right: 2px;
+  }
+
+  /* ───── CTA ───── */
+  .cta {
+    text-align: center;
+    padding: clamp(80px, 12vw, 140px) var(--pad);
+    color: var(--paper);
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      linear-gradient(color-mix(in oklab, var(--ink) 88%, transparent), color-mix(in oklab, var(--ink) 92%, transparent)),
+      url('https://images.unsplash.com/photo-1442550528053-c431ecb55509?w=1800&auto=format&fit=crop') center/cover no-repeat;
+    background-color: var(--ink);
+  }
+  .cta h2 {
+    font-family: var(--serif);
+    font-weight: 200;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 32px;
+    color: var(--paper);
+  }
+  .cta h2 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .cta p {
+    font-size: 15px;
+    color: color-mix(in oklab, var(--paper) 70%, transparent);
+    max-width: 44ch;
+    margin: 0 auto 48px;
+    line-height: 1.95;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 36px;
+    background: var(--terracotta);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .btn:hover {
+    background: color-mix(in oklab, var(--terracotta) 80%, var(--ink));
+    transform: translateY(-2px);
+  }
+  .btn::after {
+    content: "→";
+    font-family: var(--serif);
+    font-size: 16px;
+  }
+
+  /* ───── Contact ───── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--espresso);
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    font-family: var(--jp);
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    box-sizing: border-box;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--espresso);
+  }
+  .contact-form textarea { resize: vertical; min-height: 140px; }
+  .contact-form .btn { align-self: flex-start; cursor: pointer; border: none; }
+
+  /* ───── Footer ───── */
+  footer {
+    background: var(--ink);
+    color: color-mix(in oklab, var(--paper) 70%, transparent);
+    padding: 60px 0 40px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  .foot-grid h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .foot-grid ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .foot-brand {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--paper);
+    margin-bottom: 16px;
+    letter-spacing: 0;
+  }
+  .foot-bottom {
+    border-top: 1px solid color-mix(in oklab, var(--paper) 15%, transparent);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 11px;
+    color: color-mix(in oklab, var(--paper) 50%, transparent);
+  }
+
+  /* ───── Reveal animation (page load) ───── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .reveal.d1 { animation-delay: .1s; }
+  .reveal.d2 { animation-delay: .25s; }
+  .reveal.d3 { animation-delay: .4s; }
+  .reveal.d4 { animation-delay: .55s; }
+  @keyframes rise {
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">AG COFFEE<span>.</span></div>
-    <div class="divider"></div>
-    <h1>Under Maintenance</h1>
-    <p>ただいまサイトのメンテナンス中です。<br>近日中に再公開いたします。</p>
-    <p class="contact">TEL 075-754-8811</p>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">AG COFFEE<span class="dot">.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow reveal d1">Specialty Coffee Roaster — Est. 2021</div>
+      <h1 class="headline reveal d2">A quiet<br/>cup, <em>roasted</em><br/>in Kyoto.</h1>
+      <p class="lede reveal d3">
+        銀閣寺へ続く道、白川のほとりで。<br/>
+        産地の声に耳をすませ、季節ごとの一杯を、<br/>
+        一袋ずつ手で焙煎しています。
+      </p>
+    </div>
+    <aside class="hero-visual reveal d4">
+      <div class="photo">
+        <img src="images/IMG_1868.jpg"
+             alt="AG COFFEEテイクアウトカップ"
+             fetchpriority="high" decoding="async" />
+      </div>
+      <div class="hero-meta-inline">
+        <div>
+          Today's bean
+          <strong>Ethiopia, Yirgacheffe G1</strong>
+        </div>
+        <div>
+          Hours
+          <strong>9:00 — 17:30 / Closed Tue.</strong>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<figure class="bridge" aria-hidden="false">
+  <img src="images/IMG_1866.jpg"
+       alt="雪の銀閣寺 — 京都・銀閣寺"
+       loading="lazy" decoding="async" />
+</figure>
+
+
+<section id="story">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">01 — Story</div>
+      <h2 class="sect-title">産地と、季節と、<br/><em>一杯の静けさと。</em></h2>
+    </div>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>
+          AG COFFEE. は、京都・銀閣寺のほとりに小さな焙煎所を構えるスペシャルティコーヒー店です。
+          創業の2021年から、私たちは「派手さよりも、深い静けさ」を大切にしてきました。
+        </p>
+        <p>
+          扱う豆は、年間を通じて世界の12の農園から。
+          スコア85点以上のロットだけを選び、産地の高度・土・発酵の癖までを聞き取ったうえで、
+          そのロットがいちばん語る焙煎度を決めます。
+        </p>
+        <p>
+          浅煎りの華やかさ、中煎りの厚み。
+          一杯のなかに、農園の朝のしずけさが残るような味を目指しています。
+        </p>
+        <p>
+          白とウッド調をベースにしたインテリアは上質感ある洋のスタイル。店内奥には京都らしい坪庭からのやわらかい陽射しが印象的です。和と洋のスタイルがナチュラルに重なるカフェ、それが「AG COFFEE.」です。
+        </p>
+        <p>
+          大切にしているのはカフェとしての居心地のよさ。店内にはおいしいコーヒーの香りはもちろん、スタッフとお客様の間で愉しい会話があふれています。
+        </p>
+        <p>
+          一般のカフェでは入手困難なコーヒー豆を特別に仕入れ、店長が丁寧に淹れるエスプレッソは自慢の逸品。地産地消の考えを大切にし食材はなるべく京都・滋賀から仕入れています。環境問題にも配慮しお客様持ち込みカップや容器などでにもご対応。規模は小さくてもSDGsへの取り組みに積極的に貢献したいと考えています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">02 — Menu</div>
+      <h2 class="sect-title" style="font-style:normal;">Menu<br/><span style="font-family:var(--jp); font-size:0.42em; font-weight:400; letter-spacing:0.08em; color:var(--mist); font-style:normal; display:block; margin-top:12px;">ドリンク・フード　全メニュー</span></h2>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-cat="coffee">Coffee</button>
+      <button class="menu-tab" data-cat="tea">Tea &amp; Matcha</button>
+      <button class="menu-tab" data-cat="drinks">Drinks</button>
+      <button class="menu-tab" data-cat="food">Food</button>
+      <button class="menu-tab" data-cat="sweets">Sweets</button>
+      <button class="menu-tab" data-cat="beer">Beer &amp; Cocktails</button>
+      <button class="menu-tab" data-cat="beans">Beans</button>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="menu-panel active" id="cat-coffee">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Espresso</span><span class="menu-item-price"><span>¥</span>500</span></div>
+        <div class="menu-item"><span class="menu-item-name">Double Espresso</span><span class="menu-item-price"><span>¥</span>550</span></div>
+        <div class="menu-item"><span class="menu-item-name">Americano HOT</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Americano ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Latte HOT</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Latte ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Mocha HOT</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cafe Mocha ICED</span><span class="menu-item-price"><span>¥</span>730</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cappuccino</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Macchiato</span><span class="menu-item-price"><span>¥</span>580</span></div>
+        <div class="menu-item"><span class="menu-item-name">Flat White</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Long Black HOT</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Long Black ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">AG-COLD BREW</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO-COLD BREW</span><span class="menu-item-price"><span>¥</span>700</span></div>
+      </div>
+    </div>
+
+    <!-- TEA & MATCHA -->
+    <div class="menu-panel" id="cat-tea">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Uji Matcha Latte HOT</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Uji Matcha Latte ICED</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha HOT</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Latte HOT</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Latte ICED</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Japanese Black Tea HOT</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Japanese Black Tea ICED</span><span class="menu-item-price"><span>¥</span>600</span></div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-panel" id="cat-drinks">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Chocolate HOT</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chocolate ICED</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Home Made Lemonade</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">KIWI Lemonade</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">BLUE MINT Lemonade</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">BERRY Lemonade</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Home Made Gingerale</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Apple Juice</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Peach Juice</span><span class="menu-item-price"><span>¥</span>680</span></div>
+        <div class="menu-item"><span class="menu-item-name">Perrier</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">COKE</span><span class="menu-item-price"><span>¥</span>600</span></div>
+        <div class="menu-item"><span class="menu-item-name">Babyccino</span><span class="menu-item-price"><span>¥</span>350</span></div>
+      </div>
+    </div>
+
+    <!-- FOOD -->
+    <div class="menu-panel" id="cat-food">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Kyoto Bacon</span><span class="menu-item-price"><span>¥</span>1,450</span></div>
+        <div class="menu-item"><span class="menu-item-name">Smoked Salmon &amp; Cream Cheese</span><span class="menu-item-price"><span>¥</span>1,450</span></div>
+        <div class="menu-item"><span class="menu-item-name">Teriyaki Chicken</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Egg &amp; Ham</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Vegan Sand</span><span class="menu-item-price"><span>¥</span>1,350</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hot Dog</span><span class="menu-item-price"><span>¥</span>980</span></div>
+      </div>
+    </div>
+
+    <!-- SWEETS -->
+    <div class="menu-panel" id="cat-sweets">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Chocolate Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Hojicha Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Espresso Terrine</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chestnut Pound Cake</span><span class="menu-item-price"><span>¥</span>650</span></div>
+        <div class="menu-item"><span class="menu-item-name">Dry Fruit Pound Cake</span><span class="menu-item-price"><span>¥</span>550</span></div>
+        <div class="menu-item"><span class="menu-item-name">White Chocolate &amp; Berry</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Matcha Walnut Cookie</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Cocoa Banana</span><span class="menu-item-price"><span>¥</span>440</span></div>
+        <div class="menu-item"><span class="menu-item-name">Caramel Almond</span><span class="menu-item-price"><span>¥</span>420</span></div>
+        <div class="menu-item"><span class="menu-item-name">Chocolate Chunk Cookie</span><span class="menu-item-price"><span>¥</span>380</span></div>
+      </div>
+    </div>
+
+    <!-- BEER & COCKTAILS -->
+    <div class="menu-panel" id="cat-beer">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">Sapporo</span><span class="menu-item-price"><span>¥</span>700</span></div>
+        <div class="menu-item"><span class="menu-item-name">Heineken</span><span class="menu-item-price"><span>¥</span>750</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI BLUE</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI RED</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+        <div class="menu-item"><span class="menu-item-name">HINATEMARI YELLOW</span><span class="menu-item-price"><span>¥</span>1,380</span></div>
+      </div>
+    </div>
+
+    <!-- BEANS -->
+    <div class="menu-panel" id="cat-beans">
+      <div class="menu-grid">
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 100g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>1,050</span><a href="https://square.link/u/DtMzGNzd" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 250g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>2,500</span><a href="https://square.link/u/1JyFVJip" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 100g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>1,150</span><a href="https://square.link/u/Tn0hg4vc" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 200g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>2,200</span><a href="https://square.link/u/ViD7x8yJ" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">03 — Visit</div>
+      <h2 class="sect-title">銀閣寺の道すがら、<br/><em>白川のほとりに。</em></h2>
+    </div>
+    <div class="visit-grid">
+      <table class="info-table">
+        <tr>
+          <th>Address</th>
+          <td>
+            <strong>京都府京都市左京区銀閣寺前町15-6</strong>
+            銀閣寺道から徒歩3分、白川沿いの町家
+          </td>
+        </tr>
+        <tr>
+          <th>Hours</th>
+          <td>
+            <strong>9:00 — 17:30</strong>
+          </td>
+        </tr>
+        <tr>
+          <th>Closed</th>
+          <td>
+            <strong>火曜日</strong>
+            Instagram <a href="https://www.instagram.com/agcoffeekyoto/" target="_blank" rel="noopener" style="color:inherit;">@agcoffeekyoto</a> でお知らせします
+          </td>
+        </tr>
+        <tr>
+          <th>Tel</th>
+          <td>
+            <strong><a href="tel:0757548811" style="color:inherit;">075-754-8811</a></strong>
+          </td>
+        </tr>
+        <tr>
+          <th>Access</th>
+          <td>
+            <strong>市バス「銀閣寺道」より徒歩3分</strong>
+            京都駅より約30分／自転車駐輪可
+          </td>
+        </tr>
+        <tr>
+          <th>Service</th>
+          <td>
+            <strong>店内 / テイクアウト / 豆販売 / 通販</strong>
+          </td>
+        </tr>
+      </table>
+
+      <div>
+        <div class="visit-photo">
+          <img src="images/IMG_1867.jpg"
+               alt="AG COFFEE 店舗外観" loading="lazy" decoding="async" />
+        </div>
+        <div class="map" style="padding:0; overflow:hidden;">
+          <iframe
+            src="https://maps.google.com/maps?q=AG+COFFEE.+京都府京都市左京区銀閣寺前町15-6&t=&z=17&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="100%" style="border:0; display:block;"
+            allowfullscreen="" loading="lazy"
+            title="AG COFFEE. 店舗地図"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">04 — Contact</div>
+      <h2 class="sect-title">お問い合わせ</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>
+          コーヒー豆のご注文・通販・カッピングに関するご質問など、
+          お気軽にお問い合わせください。<br/><br/>
+          <strong>TEL</strong> <a href="tel:0757548811" style="color:inherit;">075-754-8811</a><br/>
+          <strong>MAIL</strong> agcoffee.kyoto@gmail.com<br/>
+          <strong>HOURS</strong> 9:00 — 17:30 / 火曜定休
+        </p>
+      </div>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLScx6k9EghsdmAhXYF1Z9PBIqQb-bokNFoy3Pz9kPjIBr_OYJw/viewform?embedded=true"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        style="border:1px solid var(--line); background:var(--cream); display:block;"
+        title="AG COFFEE. お問い合わせフォーム">
+        読み込んでいます…
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>One bag,<br/>one <em>quiet</em> morning.</h2>
+  <p>
+    今月の豆を、ご自宅へ。<br/>
+    定期便は月1袋から。いつでも休止できます。
+  </p>
+  <a class="btn" href="#menu" onclick="document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));document.querySelector('[data-cat=beans]').classList.add('active');document.getElementById('cat-beans').classList.add('active');">豆を購入する</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">AG COFFEE.</div>
+        <div>京都・銀閣寺の小さな焙煎所。<br/>季節の一杯を、ひと袋ずつ。</div>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#menu">Full Menu</a></li>
+          <li><a href="#visit">Find Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take Home</h4>
+        <ul>
+          <li><a href="#">Single Origin Beans</a></li>
+          <li><a href="#">Monthly Subscription</a></li>
+          <li><a href="#">Drip Bags</a></li>
+          <li><a href="#">Original Goods</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/agcoffeekyoto/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Cupping Events</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 AG COFFEE. — Roasted in Kyoto, Japan.</div>
+      <div>Privacy · Terms · Specified Commercial Transactions</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Menu tab switching
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('cat-' + tab.dataset.cat).classList.add('active');
+    });
+  });
+
+  // Smooth scroll without hash in URL
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
