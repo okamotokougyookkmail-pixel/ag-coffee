@@ -1143,6 +1143,20 @@
       document.getElementById('cat-' + tab.dataset.cat).classList.add('active');
     });
   });
+
+  // Smooth scroll without hash in URL
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  });
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
