@@ -979,10 +979,10 @@
     <!-- BEANS -->
     <div class="menu-panel" id="cat-beans">
       <div class="menu-grid">
-        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 100g</span><span class="menu-item-price"><span>¥</span>1,050</span></div>
-        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 250g</span><span class="menu-item-price"><span>¥</span>2,500</span></div>
-        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 100g</span><span class="menu-item-price"><span>¥</span>1,150</span></div>
-        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 200g</span><span class="menu-item-price"><span>¥</span>2,200</span></div>
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 100g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>1,050</span><a href="https://square.link/u/DtMzGNzd" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">AG COFFEE. BLEND 250g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>2,500</span><a href="https://square.link/u/1JyFVJip" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 100g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>1,150</span><a href="https://square.link/u/Tn0hg4vc" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
+        <div class="menu-item"><span class="menu-item-name">ORO ESPRESSO BLEND 200g</span><span style="display:flex;align-items:baseline;gap:16px;"><span class="menu-item-price"><span>¥</span>2,200</span><a href="https://square.link/u/ViD7x8yJ" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--terracotta);border:1px solid var(--terracotta);padding:4px 10px;white-space:nowrap;">購入する</a></span></div>
       </div>
     </div>
 
@@ -1090,7 +1090,7 @@
     今月の豆を、ご自宅へ。<br/>
     定期便は月1袋から。いつでも休止できます。
   </p>
-  <a class="btn" href="#">Subscribe to beans</a>
+  <a class="btn" href="#menu" onclick="document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));document.querySelector('[data-cat=beans]').classList.add('active');document.getElementById('cat-beans').classList.add('active');">豆を購入する</a>
 </section>
 
 <footer>
