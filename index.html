@@ -675,6 +675,45 @@
     font-size: 16px;
   }
 
+  /* ───── Contact ───── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--espresso);
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    font-family: var(--jp);
+    font-size: 15px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s;
+    box-sizing: border-box;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--espresso);
+  }
+  .contact-form textarea { resize: vertical; min-height: 140px; }
+  .contact-form .btn { align-self: flex-start; cursor: pointer; border: none; }
+
   /* ───── Footer ───── */
   footer {
     background: var(--ink);
@@ -748,6 +787,7 @@
         <li><a href="#story">Story</a></li>
         <li><a href="#menu">Menu</a></li>
         <li><a href="#visit">Visit</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -1011,6 +1051,35 @@
             title="AG COFFEE. 店舗地図"></iframe>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sect-head">
+      <div class="sect-num">04 — Contact</div>
+      <h2 class="sect-title">お問い合わせ</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>
+          コーヒー豆のご注文・通販・カッピングに関するご質問など、
+          お気軽にお問い合わせください。<br/><br/>
+          <strong>TEL</strong> <a href="tel:0757548811" style="color:inherit;">075-754-8811</a><br/>
+          <strong>MAIL</strong> agcoffee.kyoto@gmail.com<br/>
+          <strong>HOURS</strong> 9:00 — 17:30 / 火曜定休
+        </p>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/agcoffee.kyoto@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="AG COFFEE. お問い合わせ">
+        <input type="hidden" name="_next" value="https://ag-coffee.vercel.app/">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="name" placeholder="お名前" required />
+        <input type="email" name="email" placeholder="メールアドレス" required />
+        <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+        <button type="submit" class="btn">送信する</button>
+      </form>
     </div>
   </div>
 </section>
