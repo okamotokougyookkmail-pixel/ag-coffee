@@ -676,43 +676,163 @@
   }
 
   /* ───── Contact ───── */
+  #contact {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  #contact .sect-num { color: var(--terracotta); }
+  #contact .sect-title { color: var(--paper); }
+
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: clamp(32px, 5vw, 72px);
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(40px, 6vw, 80px);
     align-items: start;
   }
   @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
 
-  .contact-info p {
-    font-size: 15px;
-    line-height: 2;
-    color: var(--espresso);
+  .contact-info { position: sticky; top: 100px; }
+  .ci-lead {
+    font-family: var(--jp);
+    font-size: clamp(14px, 1.5vw, 16px);
+    line-height: 2.1;
+    color: color-mix(in oklab, var(--paper) 70%, transparent);
+    margin: 0 0 40px;
   }
-  .contact-form {
+
+  .contact-channels { display: flex; flex-direction: column; }
+  .contact-channel {
     display: flex;
-    flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid color-mix(in oklab, var(--paper) 11%, transparent);
+    text-decoration: none;
+    transition: opacity .2s;
   }
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid var(--line);
-    background: var(--cream);
+  .contact-channel:last-child { border-bottom: 1px solid color-mix(in oklab, var(--paper) 11%, transparent); }
+  .contact-channel:hover { opacity: .65; }
+  .cc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    min-width: 72px;
+  }
+  .cc-value {
     font-family: var(--jp);
     font-size: 15px;
-    color: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Inquiry type */
+  .cf-type-heading {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .cf-type-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .cf-type-input { display: none; }
+  .cf-type-label {
+    display: block;
+    cursor: pointer;
+    padding: 12px 14px;
+    border: 1px solid color-mix(in oklab, var(--paper) 18%, transparent);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: color-mix(in oklab, var(--paper) 55%, transparent);
+    text-transform: uppercase;
+    text-align: center;
+    transition: all .2s;
+  }
+  .cf-type-label:hover { border-color: var(--terracotta); color: var(--paper); }
+  .cf-type-input:checked + .cf-type-label {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--paper);
+  }
+
+  /* Fields */
+  .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 560px) { .cf-row { grid-template-columns: 1fr; } }
+
+  .cf-field { margin-bottom: 22px; }
+  .cf-field label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cf-field input,
+  .cf-field textarea {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid color-mix(in oklab, var(--paper) 20%, transparent);
+    background: transparent;
+    font-family: var(--jp);
+    font-size: 15px;
+    color: var(--paper);
     outline: none;
     transition: border-color .2s;
     box-sizing: border-box;
+    -webkit-appearance: none;
   }
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: var(--espresso);
+  .cf-field input::placeholder,
+  .cf-field textarea::placeholder { color: color-mix(in oklab, var(--paper) 28%, transparent); }
+  .cf-field input:focus,
+  .cf-field textarea:focus { border-color: var(--terracotta); }
+  .cf-field textarea { resize: none; min-height: 120px; line-height: 1.9; }
+
+  /* Agree */
+  .cf-agree {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin: 28px 0 24px; cursor: pointer;
   }
-  .contact-form textarea { resize: vertical; min-height: 140px; }
-  .contact-form .btn { align-self: flex-start; cursor: pointer; border: none; }
+  .cf-agree input[type="checkbox"] {
+    width: 15px; height: 15px; margin-top: 3px;
+    flex-shrink: 0; accent-color: var(--terracotta); cursor: pointer;
+  }
+  .cf-agree span {
+    font-family: var(--jp); font-size: 12px; line-height: 1.8;
+    color: color-mix(in oklab, var(--paper) 50%, transparent);
+  }
+  .cf-agree a { color: var(--terracotta); }
+
+  /* Submit */
+  .cf-submit {
+    width: 100%; padding: 18px;
+    background: var(--terracotta); color: var(--paper);
+    border: none; font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase;
+    cursor: pointer; transition: background .25s, transform .25s;
+  }
+  .cf-submit:hover { background: color-mix(in oklab, var(--terracotta) 75%, var(--paper)); transform: translateY(-2px); }
+  .cf-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+  /* Thanks */
+  .cf-thanks {
+    display: none; padding: 48px 32px;
+    border: 1px solid color-mix(in oklab, var(--paper) 15%, transparent);
+    text-align: center;
+  }
+  .cf-thanks.show { display: block; }
+  .cf-thanks .ck { font-size: 36px; margin-bottom: 20px; }
+  .cf-thanks h3 { font-family: var(--serif); font-size: 24px; font-style: italic; color: var(--paper); margin: 0 0 12px; }
+  .cf-thanks p { font-family: var(--jp); font-size: 14px; color: color-mix(in oklab, var(--paper) 58%, transparent); margin: 0; line-height: 2; }
 
   /* ───── Footer ───── */
   footer {
@@ -1047,26 +1167,83 @@
       <h2 class="sect-title">お問い合わせ</h2>
     </div>
     <div class="contact-grid">
+
+      <!-- Left: info -->
       <div class="contact-info">
-        <p>
+        <p class="ci-lead">
           コーヒー豆のご注文・通販・カッピングに関するご質問など、
-          お気軽にお問い合わせください。<br/><br/>
-          <strong>TEL</strong> <a href="tel:0757548811" style="color:inherit;">075-754-8811</a><br/>
-          <strong>MAIL</strong> agcoffee.kyoto@gmail.com<br/>
-          <strong>HOURS</strong> 8:00~16:00
+          お気軽にどうぞ。<br/>通常2営業日以内にご返信いたします。
         </p>
+        <div class="contact-channels">
+          <a href="tel:0757548811" class="contact-channel">
+            <span class="cc-label">TEL</span>
+            <span class="cc-value">075-754-8811</span>
+          </a>
+          <a href="mailto:agcoffee.kyoto@gmail.com" class="contact-channel">
+            <span class="cc-label">MAIL</span>
+            <span class="cc-value">agcoffee.kyoto@gmail.com</span>
+          </a>
+          <a href="https://www.instagram.com/agcoffeekyoto/" target="_blank" rel="noopener" class="contact-channel">
+            <span class="cc-label">INSTAGRAM</span>
+            <span class="cc-value">@agcoffeekyoto</span>
+          </a>
+          <div class="contact-channel" style="cursor:default; pointer-events:none;">
+            <span class="cc-label">HOURS</span>
+            <span class="cc-value">8:00 – 16:00（不定休）</span>
+          </div>
+        </div>
       </div>
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLScx6k9EghsdmAhXYF1Z9PBIqQb-bokNFoy3Pz9kPjIBr_OYJw/viewform?embedded=true"
-        width="100%"
-        height="600"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        style="border:1px solid var(--line); background:var(--cream); display:block;"
-        title="AG COFFEE. お問い合わせフォーム">
-        読み込んでいます…
-      </iframe>
+
+      <!-- Right: form -->
+      <div>
+        <div class="cf-thanks" id="cfThanks">
+          <div class="ck">☕</div>
+          <h3>Thank you.</h3>
+          <p>お問い合わせありがとうございます。<br/>2営業日以内にご返信いたします。</p>
+        </div>
+
+        <form id="cfForm" action="https://formsubmit.co/agcoffee.kyoto@gmail.com" method="POST" novalidate>
+          <!-- Inquiry type -->
+          <div class="cf-type-heading">Inquiry Type</div>
+          <div class="cf-type-group">
+            <div><input class="cf-type-input" type="radio" name="type" id="t1" value="豆のご注文・通販" checked><label class="cf-type-label" for="t1">Order / 豆の注文</label></div>
+            <div><input class="cf-type-input" type="radio" name="type" id="t2" value="カッピング・イベント"><label class="cf-type-label" for="t2">Cupping / イベント</label></div>
+            <div><input class="cf-type-input" type="radio" name="type" id="t3" value="卸し・業務用"><label class="cf-type-label" for="t3">Wholesale / 卸し</label></div>
+            <div><input class="cf-type-input" type="radio" name="type" id="t4" value="その他"><label class="cf-type-label" for="t4">Other / その他</label></div>
+          </div>
+
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">Name <span style="color:var(--terracotta)">*</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="山田 花子" required>
+            </div>
+            <div class="cf-field">
+              <label for="cf-email">Email <span style="color:var(--terracotta)">*</span></label>
+              <input type="email" id="cf-email" name="email" placeholder="hello@example.com" required>
+            </div>
+          </div>
+
+          <div class="cf-field">
+            <label for="cf-message">Message <span style="color:var(--terracotta)">*</span></label>
+            <textarea id="cf-message" name="message" placeholder="ご質問・ご要望をお聞かせください。" required></textarea>
+          </div>
+
+          <label class="cf-agree">
+            <input type="checkbox" name="agree" id="cf-agree" required>
+            <span><a href="#" target="_blank">プライバシーポリシー</a>に同意します。</span>
+          </label>
+
+          <!-- FormSubmit設定 -->
+          <input type="hidden" name="_subject" value="AG COFFEE. お問い合わせ">
+          <input type="hidden" name="_next" value="https://agcoffee.vercel.app/#contact">
+          <input type="hidden" name="_captcha" value="false">
+          <!-- honeypot spam防止 -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <button type="submit" class="cf-submit" id="cfSubmit">Send Message →</button>
+        </form>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1144,6 +1321,44 @@
       }
     });
   });
+
+  // Contact form submission (Formspree)
+  const cfForm = document.getElementById('cfForm');
+  const cfThanks = document.getElementById('cfThanks');
+  const cfSubmit = document.getElementById('cfSubmit');
+  if (cfForm) {
+    cfForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      // バリデーション
+      const name = cfForm.querySelector('#cf-name').value.trim();
+      const email = cfForm.querySelector('#cf-email').value.trim();
+      const message = cfForm.querySelector('#cf-message').value.trim();
+      const agree = cfForm.querySelector('#cf-agree').checked;
+      if (!name || !email || !message || !agree) {
+        alert('必須項目をすべてご入力の上、プライバシーポリシーにご同意ください。');
+        return;
+      }
+      cfSubmit.disabled = true;
+      cfSubmit.textContent = 'Sending...';
+      try {
+        const res = await fetch(cfForm.action, {
+          method: 'POST',
+          body: new FormData(cfForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          cfForm.style.display = 'none';
+          cfThanks.classList.add('show');
+        } else {
+          throw new Error();
+        }
+      } catch {
+        alert('送信中にエラーが発生しました。お手数ですがメールにてご連絡ください。');
+        cfSubmit.disabled = false;
+        cfSubmit.textContent = 'Send Message →';
+      }
+    });
+  }
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
